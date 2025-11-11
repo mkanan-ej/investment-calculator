@@ -9,6 +9,7 @@ function App() {
         expectedReturn:4,
         duration:5
     });
+    const valid = userInput.duration >= 1;
     function handleChange(inputID,newVal){
         setUserInput(prevInput => {
             return {...prevInput,
@@ -19,7 +20,7 @@ function App() {
     <>
       <Header />
       <UserInput userInput={userInput} handleChange={handleChange}/>
-      <Result input={userInput}/>
+      {valid ? <Result input={userInput}/> : <h1 className="center">Input invalid</h1>}
     </>
   );
 }
